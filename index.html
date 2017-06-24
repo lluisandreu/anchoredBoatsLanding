@@ -56,27 +56,6 @@
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
         <script>
-			        	//jQuery is required to run this code
-			$( document ).ready(function() {
-				
-			    scaleVideoContainer();
-
-			    initBannerVideoSize('.video-container .poster img');
-			    initBannerVideoSize('.video-container .filter');
-			    initBannerVideoSize('.video-container video');
-
-			    $('.hero-content').addClass('appear');
-
-			    
-
-			    $(window).on('resize', function() {
-			        scaleVideoContainer();
-			        scaleBannerVideoSize('.video-container .poster img');
-			        scaleBannerVideoSize('.video-container .filter');
-			        scaleBannerVideoSize('.video-container video');
-			    });
-
-			});
 
 			$(window).on('load',  function(event) {
 				
@@ -99,9 +78,24 @@
 
 				$('#videos').html(html);
 
+				scaleVideoContainer();
+
+			    initBannerVideoSize('.video-container .poster img');
+			    initBannerVideoSize('.video-container .filter');
+			    initBannerVideoSize('.video-container video');
+
+			    $('.hero-content').addClass('appear');
+
 				$('.video-container video').css('z-index', '10');
 				$('.poster img').css('z-index', '1');
 			});
+
+			$(window).on('resize', function() {
+			        scaleVideoContainer();
+			        scaleBannerVideoSize('.video-container .poster img');
+			        scaleBannerVideoSize('.video-container .filter');
+			        scaleBannerVideoSize('.video-container video');
+			    });
 
 			function scaleVideoContainer() {
 
