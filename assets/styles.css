@@ -107,6 +107,10 @@ h3 {
     width: 100%;
 }
 
+.video-hidden {
+    display: none;
+}
+
 @media screen and (min-width: 650px) {
     h2 {
         font-size: 5rem;

@@ -27,13 +27,7 @@
         <div class="homepage-hero-module">
 		    <div class="video-container">
 		        <div class="filter"></div>
-		        <video autoplay loop class="fillWidth">
-		            <source src="videos/MP4/Sail-Away.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-		            <source src="videos/WEBM/Sail-Away.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-		        </video>
-		        <div class="poster hidden">
-		            <img src="videos/Snapshots/Sail-Away.jpg" alt="Anchoded Boats">
-		        </div>
+		        <div id="videos"></div>
 		    </div>
 		    <div class="hero-content row column">
 		    	<div class="hero-logo">
@@ -64,7 +58,7 @@
         <script>
 			        	//jQuery is required to run this code
 			$( document ).ready(function() {
-
+				
 			    scaleVideoContainer();
 
 			    initBannerVideoSize('.video-container .poster img');
@@ -73,7 +67,7 @@
 
 			    $('.hero-content').addClass('appear');
 
-			    $('.poster img').css('z-index', '-1');
+			    
 
 			    $(window).on('resize', function() {
 			        scaleVideoContainer();
@@ -82,6 +76,31 @@
 			        scaleBannerVideoSize('.video-container video');
 			    });
 
+			});
+
+			$(window).on('load',  function(event) {
+				
+				var videos = [
+				    'Sail-Away',
+				    'Water-Park',
+				    'Boat-Lapse',
+				    'The-Boat',
+				];
+
+				var index = Math.floor(Math.random() * videos.length);
+				var html = "<div class='filter'></div> \
+		        <video autoplay loop class='fillWidth'> \
+		            <source src='videos/MP4/" + videos[index] + ".mp4' type='video/mp4' />Your browser does not support the video tag. I suggest you upgrade your browser. \
+		            <source src='videos/WEBM/" + videos[index] + ".webm' type='video/webm' />Your browser does not support the video tag. I suggest you upgrade your browser. \
+		        </video> \
+		        <div class='poster hidden'> \
+		            <img src='videos/Snapshots/" + videos[index] + ".jpg' alt='Anchoded Boats'> \
+		        </div>";
+
+				$('#videos').html(html);
+
+				$('.video-container video').css('z-index', '10');
+				$('.poster img').css('z-index', '1');
 			});
 
 			function scaleVideoContainer() {
@@ -129,6 +148,7 @@
 
 			    });
 			}
+
         </script>
     </body>
 </html>
