@@ -1,0 +1,134 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Anchored Boats | Sailing together very soon...</title>
+        <meta name="description" content="AnchoredBoats, making the world sleep different. Sail the way locals do. Changing the way you sail. Incredible experiences on yachts. Boating made easy">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://use.fontawesome.com/ae39ebf518.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+        <link rel="stylesheet" href="assets/styles.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="homepage-hero-module">
+		    <div class="video-container">
+		        <div class="filter"></div>
+		        <video autoplay loop class="fillWidth">
+		            <source src="videos/MP4/Sail-Away.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+		            <source src="videos/WEBM/Sail-Away.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+		        </video>
+		        <div class="poster hidden">
+		            <img src="videos/Snapshots/Sail-Away.jpg" alt="Anchoded Boats">
+		        </div>
+		    </div>
+		    <div class="hero-content row column">
+		    	<div class="hero-logo">
+		    		<img src="assets/logo.png" alt="Anchored Boarts" width="300">
+		    	</div>
+		    	<div class="hero-content-body text-center">
+		    		<h2>Changing the way you sail</h2>
+		    		<h3>Make money with your sailing boat when you´re not using it</h3>
+		    		<h4>Sailing with you very soon...</h4>
+		    		<div class="text-center social-links">
+		    			<a href="https://www.facebook.com/AnchoredBoats" target="_blank"><i class="fa fa-facebook"></i></a>
+		    			<a href="https://www.linkedin.com/company-beta/11170275/"><i class="fa fa-linkedin"></i></a>
+		    			<a href="mailto:info@anchoredboats.com"><i class="fa fa-envelope-o"></i></a>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <script>
+			        	//jQuery is required to run this code
+			$( document ).ready(function() {
+
+			    scaleVideoContainer();
+
+			    initBannerVideoSize('.video-container .poster img');
+			    initBannerVideoSize('.video-container .filter');
+			    initBannerVideoSize('.video-container video');
+
+			    $('.hero-content').addClass('appear');
+
+			    $('.poster img').css('z-index', '-1');
+
+			    $(window).on('resize', function() {
+			        scaleVideoContainer();
+			        scaleBannerVideoSize('.video-container .poster img');
+			        scaleBannerVideoSize('.video-container .filter');
+			        scaleBannerVideoSize('.video-container video');
+			    });
+
+			});
+
+			function scaleVideoContainer() {
+
+			    var height = $(window).height() + 5;
+			    var unitHeight = parseInt(height) + 'px';
+			    $('.homepage-hero-module').css('height',unitHeight);
+
+			}
+
+			function initBannerVideoSize(element){
+
+			    $(element).each(function(){
+			        $(this).data('height', $(this).height());
+			        $(this).data('width', $(this).width());
+			    });
+
+			    scaleBannerVideoSize(element);
+
+			}
+
+			function scaleBannerVideoSize(element){
+
+			    var windowWidth = $(window).width(),
+			    windowHeight = $(window).height() + 5,
+			    videoWidth,
+			    videoHeight;
+
+			    // console.log(windowHeight);
+
+			    $(element).each(function(){
+			        var videoAspectRatio = $(this).data('height')/$(this).data('width');
+
+			        $(this).width(windowWidth);
+
+			        if(windowWidth < 1000){
+			            videoHeight = windowHeight;
+			            videoWidth = videoHeight / videoAspectRatio;
+			            $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+			            $(this).width(videoWidth).height(videoHeight);
+			        }
+
+			        $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+
+			    });
+			}
+        </script>
+    </body>
+</html>
