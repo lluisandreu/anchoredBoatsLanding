@@ -30,14 +30,13 @@
 		        <div id="videos"></div>
 		    </div>
 		    <div class="hero-content row column">
-		    	<div class="hero-logo">
-		    		<img src="assets/logo.png" alt="Anchored Boarts" width="300">
-		    	</div>
-		    	<div class="hero-content-body text-center">
+		    	<div class="hero-content-body">
+		    		<img src="assets/logo.png" alt="Anchored Boarts">
 		    		<h2>Changing the way you sail</h2>
-		    		<h3>Make money with your sailing boat when you´re not using it</h3>
+		    		<div id="slogans"></div>
+		    		<br>
 		    		<h4>Sailing with you very soon...</h4>
-		    		<div class="text-center social-links">
+		    		<div class="social-links">
 		    			<a href="https://www.facebook.com/AnchoredBoats" target="_blank"><i class="fa fa-facebook"></i></a>
 		    			<a href="https://www.linkedin.com/company-beta/11170275/"><i class="fa fa-linkedin"></i></a>
 		    			<a href="mailto:info@anchoredboats.com"><i class="fa fa-envelope-o"></i></a>
@@ -64,9 +63,24 @@
 				    'Water-Park',
 				    'Boat-Lapse',
 				    'The-Boat',
+				    'The-Coast',
+				    'Fishermen-Resting'
+				];
+
+				var slogans = [
+					'Sail the way locals do',
+					'Changing the way you sail',
+					'Incredible experiences on yachts',
+					'Boating made easy',
+					'rent a motorboat / yacht / sailing boat in any port',
+					'Make money with your sailing boat when you´re not using it',
+					'Make money with your yacht ',
+					'AnchoredBoats, creating community',
+					'AnchoredBoats, making the world sleep different',
 				];
 
 				var index = Math.floor(Math.random() * videos.length);
+				var indexSlogans = Math.floor(Math.random() * slogans.length);
 				var html = "<div class='filter'></div> \
 		        <video autoplay loop class='fillWidth'> \
 		            <source src='videos/MP4/" + videos[index] + ".mp4' type='video/mp4' />Your browser does not support the video tag. I suggest you upgrade your browser. \
@@ -76,7 +90,10 @@
 		            <img src='videos/Snapshots/" + videos[index] + ".jpg' alt='Anchoded Boats'> \
 		        </div>";
 
+		        var slogans = "<h3>"+ slogans[indexSlogans] +"</h3>";
+
 				$('#videos').html(html);
+				$('#slogans').html(slogans);
 
 				scaleVideoContainer();
 
